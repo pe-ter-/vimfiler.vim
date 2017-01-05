@@ -1667,6 +1667,12 @@ function! vimfiler#mappings#_change_vim_current_dir() abort "{{{
 
   execute g:unite_kind_cdable_lcd_command
         \ fnameescape(vimfiler.current_dir)
+
+  " Specify current directory
+  let bufname = 'vimfiler:'.vimfiler.current_dir
+  if !bufexists(bufname)
+    execute 'file' bufname
+  endif
 endfunction"}}}
 function! s:grep() abort "{{{
   if !vimfiler#util#has_vimproc()
