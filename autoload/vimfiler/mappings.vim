@@ -1669,7 +1669,7 @@ function! vimfiler#mappings#_change_vim_current_dir() abort "{{{
         \ fnameescape(vimfiler.current_dir)
 
   " Specify current directory
-  let bufname = 'vimfiler:'.vimfiler.current_dir
+  let bufname = fnameescape('vimfiler:'.vimfiler.current_dir)
   if !bufexists(bufname)
     execute 'file' bufname
   endif
